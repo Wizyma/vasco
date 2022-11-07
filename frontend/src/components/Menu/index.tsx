@@ -25,7 +25,9 @@ export type MenuProps = {
 
 export const Sidebar = ({ items, onClick }: MenuProps) => {
   const [selectedPath, setSelectedPath] = useState<null | string>(null);
-  const { isOpen, onToggle, onOpen } = useDisclosure()
+  const { isOpen, onToggle, onOpen } = useDisclosure({
+    defaultIsOpen: true,
+  })
 
 
   const onFirstLayerMenuClick = useCallback((key: string) => {
@@ -93,6 +95,9 @@ export const Sidebar = ({ items, onClick }: MenuProps) => {
         <Box display="flex" alignItems="baseline" justifyContent="space-between">
           {selectedKeys?.length && isOpen ? <Text paddingLeft={3} fontWeight="bold" fontSize="xl">{items[selectedKeys[0]].title}</Text> : null}
           <Flex
+            _hover={{
+              backgroundColor: "gray.100"
+            }}
             backgroundColor="gray.50"
             onClick={onToggle}
             alignItems="center"

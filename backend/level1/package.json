@@ -10,5 +10,9 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.12",
+    "cors": "^2.8.5"
   }
 }
