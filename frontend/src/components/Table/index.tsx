@@ -46,12 +46,13 @@ export const VericalTable = <T,>({ rows, columns, title }: TableProps<T>) => {
       <Box width="100%" borderBottom="1px solid #EEEFF2">
         <Text fontSize="2xl" fontWeight="bold" p="2" ml="2.5">{title}</Text>
       </Box>
-      <TableContainer width="100%" overflow="auto">
+      <TableContainer className="vertical-table__container" width="100%" overflow="auto">
         <Table marginBottom="0.25rem" variant="simple" overflowX="auto" overflowY="visible" style={{ tableLayout: 'fixed', width: '100%' }}>
           {groups.map(({ format = identity,...column }, index) => (
-            <Tr key={column.name as string}>
+            <Tr className="vertical-table__row" key={column.name as string}>
               <>
                 <Th 
+                  className="vertical-table__row-head"
                   width="200px" 
                   position="absolute"
                   border="none"
@@ -65,7 +66,8 @@ export const VericalTable = <T,>({ rows, columns, title }: TableProps<T>) => {
                 </Th>
                 <Td width="200px" />
                 {column.items.map(item => (
-                  <Td 
+                  <Td
+                    className="vertical-table__row-cell"
                     textAlign="end" 
                     fontWeight="medium" 
                     borderBottom={groups.length === (index + 1) ? 'none' : '1px solid #EEEFF2'} 

@@ -21,6 +21,10 @@ body {
   min-height: 100vh;
 }
 
+.vertical-table__row-head {
+  height: 46px !important;
+}
+
 /*
 a {
   font-weight: 500;
