@@ -6,6 +6,7 @@ import {
   TableContainer,
   Box,
   Text,
+  StyleProps,
 } from '@chakra-ui/react'
 import { identity } from 'ramda';
 import { useEffect, useMemo, useState } from 'react';
@@ -18,6 +19,7 @@ export type TableProps<T = unknown> = {
     isEditable?: boolean;
     label: string;
     hasShadow?: boolean;
+    customStyle?: StyleProps
     format?: (value: any) => string
   }[]
 }
@@ -57,12 +59,20 @@ export const VericalTable = <T,>({ rows, columns, title }: TableProps<T>) => {
                   alignItems="center"
                   backgroundColor="white"
                   height="55px"
-                  boxShadow={column.hasShadow ? "6px 0 10px -3px #EEEFF2" : undefined}>
+                  boxShadow={column.hasShadow ? "6px 0 10px -3px #EEEFF2" : undefined}
+                  {...column?.customStyle}>
                   {column.label}
                 </Th>
                 <Td width="200px" />
                 {column.items.map(item => (
-                  <Td textAlign="end" fontWeight="medium" borderBottom={groups.length === (index + 1) ? 'none' : '1px solid #EEEFF2'} width="200px" key={`${column.name as string}-${item}`}>{format(item)}</Td>
+                  <Td 
+                    textAlign="end" 
+                    fontWeight="medium" 
+                    borderBottom={groups.length === (index + 1) ? 'none' : '1px solid #EEEFF2'} 
+                    width="200px" key={`${column.name as string}-${item}`}
+                    {...column?.customStyle}>
+                      {format(item)}
+                    </Td>
                 ))}
               </>
             </Tr>

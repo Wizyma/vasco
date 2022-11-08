@@ -22,27 +22,53 @@ function App() {
             columns={[{
               name: 'month',
               label: '',
+              customStyle: {
+                backgroundColor: '#F7F7F8',
+                height: '32px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
+              }
             }, {
               name: 'recurringRevenue',
               label: 'Recurring revenue',
-              hasShadow: true
+              hasShadow: true,
+              customStyle: {
+                height: '42px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
+              }
             }, {
               name: 'churnRate',
               label: 'Churn Rate',
               format: (value) => `${value} %`,
-              hasShadow: true
+              hasShadow: true,
+              customStyle: {
+                height: '42px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
+              }
             },
             {
               name: 'downgradeRate',
               label: 'Downgrade Rate',
               format: (value) => `${value} %`,
-              hasShadow: true
+              hasShadow: true,
+              customStyle: {
+                height: '42px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
+              }
             },
             {
               name: 'upgradeRate',
               label: 'Updrade Rate',
               format: (value) => `${value} %`,
-              hasShadow: true
+              hasShadow: true,
+              customStyle: {
+                height: '42px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
+              }
             }]} /> : null}
         </Box> : <h1>Hello World</h1>}
       </div>
